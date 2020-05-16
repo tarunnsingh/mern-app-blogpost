@@ -1,0 +1,3 @@
+# MERN BLOGS APP
+### SERVER SIDE SCRIPT
+To be added...
