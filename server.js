@@ -7,6 +7,8 @@ const routes = require("./routers/api");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+app.use(express.json())
+app.use(express.urlencoded({ extended: false}))
 app.use(morganMiddleware);
 app.use('/api', routes)
 
