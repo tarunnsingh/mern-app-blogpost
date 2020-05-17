@@ -5,8 +5,8 @@ const BlogPost = require("../models/blogPosts");
 router.get("/", (req, res) => {
   BlogPost.find({})
     .then((data) => {
-      console.log("DATA" + data);
       res.json(data);
+      console.log("DATA Sent to Client" + data);
     })
     .catch((error) => {
       console.log("Error" + error);
