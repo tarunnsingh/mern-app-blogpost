@@ -13,6 +13,21 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/search", (req, res) => {
+  const query = req.query.q
+  console.log(query)
+  BlogPost.find({title: new RegExp(`${query}`, 'i')})
+    .then((data) => {
+      res.json(data);
+      console.log("DATA Sent to Client" + data);
+    })
+    .catch((error) => {
+      console.log("Error" + error);
+    });
+});
+
+
+
 router.get("/name", (req, res) => [
   res.json({
     username: "union",
