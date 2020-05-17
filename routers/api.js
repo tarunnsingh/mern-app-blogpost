@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
   BlogPost.find({})
     .then((data) => {
       res.json(data);
-      console.log("DATA Sent to Client" + data);
+      // console.log("DATA Sent to Client" + data);
     })
     .catch((error) => {
       console.log("Error" + error);
@@ -14,9 +14,9 @@ router.get("/", (req, res) => {
 });
 
 router.get("/search", (req, res) => {
-  const query = req.query.q
-  console.log(query)
-  BlogPost.find({title: new RegExp(`${query}`, 'i')})
+  const query = req.query.q;
+  // console.log(query);
+  BlogPost.find({ title: new RegExp(`${query}`, "i") })
     .then((data) => {
       res.json(data);
       console.log("DATA Sent to Client" + data);
@@ -26,8 +26,6 @@ router.get("/search", (req, res) => {
     });
 });
 
-
-
 router.get("/name", (req, res) => [
   res.json({
     username: "union",
@@ -36,7 +34,7 @@ router.get("/name", (req, res) => [
 ]);
 
 router.post("/save", (req, res) => {
-  console.log("BODY: ", req.body);
+  // console.log("BODY: ", req.body);
   const data = req.body;
   const newBlogPost = new BlogPost(data);
   newBlogPost.save((error) => {
